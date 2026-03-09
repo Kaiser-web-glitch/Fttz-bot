@@ -14,7 +14,7 @@ from typing import Optional
 #  إعدادات البوت
 # ═══════════════════════════════════════════════════════════
 PREFIX = "!"
-TOKEN = os.environ.get("TOKEN") or os.environ.get("DISCORD_TOKEN") or "YOUR_TOKEN_HERE"
+TOKEN = os.environ.get("TOKEN") or os.environ.get("MTQ3MzQ4NjE0OTA5MDgwODEyMg.G7jiET.r0bYIifHnwM-m-hRItL5azuPEdayjkPGcY-KJY")
 LIME_COLOR = 0x00FF00
 
 # IDs
@@ -25,7 +25,7 @@ AUTO_ROLE_ID = 1471338474652045403
 
 # YouTube Channel
 YOUTUBE_CHANNEL_NAME = "Fttz_edit"
-YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")  # اختياري
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "https://youtube.com/@fttz_edit?si=Eg_gVdHhDdL-HZqb")  # اختياري
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=PREFIX, intents=intents, help_command=None)
@@ -659,4 +659,4 @@ async def help(ctx):
 #  RUN BOT
 # ═══════════════════════════════════════════════════════════
 if __name__ == "__main__":
-    bot.run(TOKEN)
+    bot.run(os.getenv("TOKEN"))
