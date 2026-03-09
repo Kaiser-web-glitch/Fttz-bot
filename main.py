@@ -14,7 +14,7 @@ from typing import Optional
 #  Bot Configuration - Works on all platforms
 # ═══════════════════════════════════════════════════════════
 PREFIX = "!"
-TOKEN = os.environ.get("TOKEN") or os.environ.get("DISCORD_TOKEN") or "YOUR_TOKEN_HERE"
+TOKEN = os.environ.get("TOKEN") or os.environ.get("MTQ3MzQ4NjE0OTA5MDgwODEyMg.Gc-OOZ.p0qzrxLUqahJmGL9pD3aCxWe-PsDjLVgdKyZ8Q")
 LIME_COLOR = 0x00FF00
 
 WELCOME_CHANNEL_ID = 1470539807074549850
@@ -996,4 +996,4 @@ if __name__ == "__main__":
     if not TOKEN or TOKEN == "YOUR_TOKEN_HERE":
         print("❌ TOKEN not found!")
     else:
-        bot.run(TOKEN)
+        bot.run(os.getenv("TOKEN"))
