@@ -14,7 +14,7 @@ from typing import Optional
 #  Bot Configuration - Works on all platforms
 # ═══════════════════════════════════════════════════════════
 PREFIX = "!"
-TOKEN = os.environ.get("TOKEN") or os.environ.get("DISCORD_TOKEN") or "YOUR_TOKEN_HERE"
+TOKEN = os.environ.get("TOKEN") or os.environ.get("MTQ3MzQ4NjE0OTA5MDgwODEyMg.G_R8p1.J_RNdHqaNXcky6XXiW095NMn45LeG7bwhxgxgM")
 LIME_COLOR = 0x00FF00
 
 WELCOME_CHANNEL_ID = 1470539807074549850
