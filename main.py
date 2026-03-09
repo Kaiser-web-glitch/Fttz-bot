@@ -14,7 +14,7 @@ from typing import Optional
 #  إعدادات البوت
 # ═══════════════════════════════════════════════════════════
 PREFIX = "!"
-TOKEN = os.environ.get("TOKEN") or os.environ.get("MTQ3MzQ4NjE0OTA5MDgwODEyMg.G7jiET.r0bYIifHnwM-m-hRItL5azuPEdayjkPGcY-KJY")
+TOKEN = os.environ.get("TOKEN") or os.environ.get("MTQ3MzQ4NjE0OTA5MDgwODEyMg.GNCKmj.MAUZjXEXOLtNwRPjI_mCoB665AsHa2UTcw24ok")
 LIME_COLOR = 0x00FF00
 
 # IDs
