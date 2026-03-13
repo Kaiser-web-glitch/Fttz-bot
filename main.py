@@ -61,31 +61,6 @@ SHOP_ITEMS = [
     {"id": "ramen", "name": "🍜 Ramen", "price": 700, "cat": "Food"},
     {"id": "tacos", "name": "🌮 Tacos", "price": 250, "cat": "Food"},
     
-    # Weapons (23 items!)
-    {"id": "knife", "name": "🔪 Knife", "price": 1000, "cat": "Weapons"},
-    {"id": "machete", "name": "🗡️ Machete", "price": 2500, "cat": "Weapons"},
-    {"id": "pistol", "name": "🔫 Pistol", "price": 5000, "cat": "Weapons"},
-    {"id": "revolver", "name": "🔫 Revolver", "price": 7500, "cat": "Weapons"},
-    {"id": "smg", "name": "💥 SMG", "price": 12000, "cat": "Weapons"},
-    {"id": "rifle", "name": "🎯 Rifle", "price": 15000, "cat": "Weapons"},
-    {"id": "sniper", "name": "🎯 Sniper", "price": 25000, "cat": "Weapons"},
-    {"id": "shotgun", "name": "💥 Shotgun", "price": 18000, "cat": "Weapons"},
-    {"id": "ak47", "name": "🔫 AK-47", "price": 30000, "cat": "Weapons"},
-    {"id": "m4a1", "name": "🔫 M4A1", "price": 35000, "cat": "Weapons"},
-    {"id": "rpg", "name": "🚀 RPG", "price": 75000, "cat": "Weapons"},
-    {"id": "grenade", "name": "💣 Grenade", "price": 5000, "cat": "Weapons"},
-    {"id": "c4", "name": "💣 C4", "price": 15000, "cat": "Weapons"},
-    {"id": "mine", "name": "💥 Mine", "price": 8000, "cat": "Weapons"},
-    {"id": "armor", "name": "🛡️ Body Armor", "price": 20000, "cat": "Weapons"},
-    {"id": "helmet", "name": "⛑️ Helmet", "price": 10000, "cat": "Weapons"},
-    {"id": "tank", "name": "🚛 Tank", "price": 500000, "cat": "Weapons"},
-    {"id": "helicopter", "name": "🚁 Helicopter", "price": 1000000, "cat": "Weapons"},
-    {"id": "jet", "name": "✈️ Fighter Jet", "price": 2000000, "cat": "Weapons"},
-    {"id": "battleship", "name": "🚢 Battleship", "price": 5000000, "cat": "Weapons"},
-    {"id": "submarine", "name": "⚓ Submarine", "price": 3000000, "cat": "Weapons"},
-    {"id": "drone", "name": "🛸 Combat Drone", "price": 250000, "cat": "Weapons"},
-    {"id": "nuke", "name": "☢️ Nuke", "price": 100000000, "cat": "Weapons"},
-    
     # Electronics
     {"id": "phone", "name": "📱 Phone", "price": 15000, "cat": "Electronics"},
     {"id": "iphone", "name": "📱 iPhone", "price": 35000, "cat": "Electronics"},
@@ -130,6 +105,7 @@ class TicketSelect(Select):
             discord.SelectOption(label="Application", emoji="📝", value="app"),
             discord.SelectOption(label="Report", emoji="⚠️", value="report"),
             discord.SelectOption(label="Complaint", emoji="📢", value="complaint"),
+            discord.SelectOption(label="join game", emoji="📢", value="join"
         ]
         super().__init__(placeholder="Select type", options=options)
     
@@ -222,14 +198,16 @@ class XOView(View):
 # Events
 @bot.event
 async def on_ready():
-    print(f"✅ {bot.user} online!")
-    try:
-        await bot.tree.sync()
-        print("✅ Commands synced")
-    except Exception as e:
-        print(f"❌ {e}")
-    bot.add_view(TicketView())
-
+    if not hasattr(bot, '_synced'):
+        bot._synced = True
+        print(f"✅ {bot.user} online!")
+        try:
+            bot.tree.clear_commands(guild=None)
+            await bot.tree.sync()
+            print("✅ Commands synced")
+        except Exception as e:
+            print(f"❌ {e}")
+        bot.add_view(TicketView())
 @bot.event
 async def on_member_join(m):
     r = m.guild.get_role(AUTO_ROLE_ID)
