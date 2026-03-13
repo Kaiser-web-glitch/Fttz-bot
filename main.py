@@ -106,7 +106,7 @@ class TicketSelect(Select):
             discord.SelectOption(label="Application", emoji="📝", value="app"),
             discord.SelectOption(label="Report", emoji="⚠️", value="report"),
             discord.SelectOption(label="Complaint", emoji="📢", value="complaint"),
-            discord.SelectOption(label="join game", emoji="📢", value="join"
+            discord.SelectOption(label="join game", emoji="🎮", value="join"),
         ]
         super().__init__(placeholder="Select type", options=options)
     
